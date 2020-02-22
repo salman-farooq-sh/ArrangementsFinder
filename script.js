@@ -1,22 +1,15 @@
 function show_arrangements() {
-    let x = document.getElementById("arrangements");
+    let display_area = document.getElementById("arrangements");
 
-    x.innerHTML = "hahah";
+    let registration_no = document.getElementById("reg_no").value;
 
-    x.style.display = "block";
+    display_area.innerHTML = pretty_string(parseInt(registration_no));
 
-    console.log(pretty_string(108480));
+    display_area.style.display = "block";
 }
 
-function pretty_string( registration_no ) {
-    arrangements = requested_arrangements(registration_no);
-
-    let pretty_rows = "";
-    for(let i = 0; i < arrangements.length; i++) {
-        pretty_rows += arrangements[i].join(", ") + "\n";
-    }
-
-    return pretty_rows;
+function remove_unneeded_columns() {
+    
 }
 
 function arrangements_csv_as_string() {
