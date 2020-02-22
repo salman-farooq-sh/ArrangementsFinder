@@ -8,8 +8,26 @@ function show_arrangements() {
     display_area.style.display = "block";
 }
 
-function remove_unneeded_columns() {
-    
+function pretty_string( registration_no ) {
+    arrangements = remove_unneeded_columns( requested_arrangements(registration_no) );
+
+    let pretty_rows = "";
+    for(let i = 0; i < arrangements.length; i++) {
+        pretty_rows += arrangements[i].join(", ") + "<br>\n";
+    }
+
+    return pretty_rows;
+}
+
+function remove_unneeded_columns( arrangements ) {
+    for (let i = 0; i < arrangements.length; i++) {
+        arrangements[i].splice(4, 1);
+        arrangements[i].splice(3, 1);
+        arrangements[i].splice(1, 1);
+        arrangements[i].splice(0, 1);
+    }
+
+    return arrangements;
 }
 
 function arrangements_csv_as_string() {
@@ -42,6 +60,29 @@ function requested_arrangements( registration_no ) {
 
     return result;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
