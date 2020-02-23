@@ -1,11 +1,29 @@
 function show_arrangements() {
-    let display_area = document.getElementById("arrangements");
+    let registration_no = parseInt(document.getElementById("reg_no").value);
+    let arrangements = requested_arrangements(registration_no);
 
-    let registration_no = document.getElementById("reg_no").value;
+    if( arrangements.length === 0 ) {
+        document.getElementById("nothing_found").style.display = "block";
+        document.getElementById("display_area").style.display = "none";
+    } else {
+        let canvas = document.getElementById("arrangements_display");
 
-    display_area.innerHTML = pretty_string(parseInt(registration_no));
+        draw_on_canvas(canvas);
 
-    display_area.style.display = "block";
+        document.getElementById("download_button").href = canvas.toDataURL("image/jpg");
+
+        document.getElementById("display_area").style.display = "block";
+        document.getElementById("nothing_found").style.display = "none";
+    }
+}
+
+function draw_on_canvas( canvas ) {
+    canvas.width  = window.innerWidth - 20;
+    canvas.height = canvas.width * 16 / 9;
+
+    let context = canvas.getContext("2d");
+    context.fillStyle = "green";
+    context.fillRect(0,0, canvas.width,canvas.height);
 }
 
 function pretty_string( registration_no ) {
@@ -31,9 +49,9 @@ function remove_unneeded_columns( arrangements ) {
 }
 
 function arrangements_csv_as_string() {
-    var arrangements_csv_file_path = "arrangements.csv";
+    let arrangements_csv_file_path = "arrangements.csv";
 
-    var xmlhttp = new XMLHttpRequest();
+    let xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", arrangements_csv_file_path, false);
     xmlhttp.send();
     return xmlhttp.responseText;
@@ -41,28 +59,27 @@ function arrangements_csv_as_string() {
 
 // Returns an array of rows, a row is an array of cell values
 function parsed_arrangements_csv() {
-    var parsed_csv = Papa.parse(arrangements_csv_as_string(), {header: false});
+    let parsed_csv = Papa.parse(arrangements_csv_as_string(), {header: false});
     return parsed_csv.data;
 }
 
-// Returns an array of rows, this array contains those rows which have the passed "registration_no" in the first cell
+// Returns an array of rows, this array contains those rows
+// which have the passed "registration_no" in the first cell.
+// If no matching rows are found, an empty array is returned.
 function requested_arrangements( registration_no ) {
-    var result = [];
-    parsed_csv = parsed_arrangements_csv();
+    let result = [];
+    let parsed_csv = parsed_arrangements_csv();
 
-    for( var i = 0; i < parsed_csv.length; i++ ) {
-        var row = parsed_csv[i];
+    for( let i = 0; i < parsed_csv.length; i++ ) {
+        let row = parsed_csv[i];
 
-        if( row[0] == registration_no ) {
+        if( parseInt(row[0]) === registration_no ) {
             result.push(row);
         }
     }
 
     return result;
 }
-
-
-
 
 
 
