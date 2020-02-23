@@ -1,5 +1,4 @@
 #search_bar {
-    display: inline-block;
     font-size: 400%;
 
     width: 90%;
@@ -15,14 +14,12 @@
 }
 
 #search_button {
-    display: inline-block;
     font-size: 390%;
 
     width: fit-content;
     height: fit-content;
 
-    margin-top: 50px;
-    margin-bottom: 0px;
+    margin: 30px 10px 0px;
 
     padding: 23px 40px;
 
@@ -35,3 +32,6 @@
     box-shadow: 4px 4px 13px gray;
 }
 
+#display_area {
+    margin: 50px 10px 0px;
+}

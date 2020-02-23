@@ -8,7 +8,7 @@ function show_arrangements() {
     } else {
         let canvas = document.getElementById("arrangements_display");
 
-        canvas.width  = window.innerWidth - 50;
+        canvas.width  = 350;
         canvas.height = canvas.width * 16/9;
 
         draw_on_canvas( remove_unneeded_columns(arrangements) );

@@ -11,7 +11,7 @@
 <!--remove this-->
     <script>
         document.addEventListener('DOMContentLoaded', function(event) {
-            // document.getElementById('search_bar').value = '245634';
+            document.getElementById('search_bar').value = '245634';
         });
     </script>
 </head>
@@ -20,17 +20,17 @@
 <!--	<label id="reg_no_lable" for="search_bar">Enter your registration number:</label><br>-->
 
     <div style="text-align: center">
-        <input id="search_bar" type="text" placeholder="registration number..."><br>
+        <input id="search_bar" style="display: inline-block" type="text" placeholder="registration number..."><br>
     </div>
 
     <div style="text-align: center">
-        <button id="search_button" type="button" onclick="show_arrangements()">Find</button><br>
+        <button id="search_button" style="display: inline-block" type="button" onclick="show_arrangements()">Find</button><br>
     </div>
 
     <label id="nothing_found" style="display: none">Nothing found :-(</label>
 
-    <div id="display_area" style="display: none">
-        <canvas id="arrangements_display"></canvas><br>
+    <div id="display_area" style="display: none; text-align: center">
+        <canvas id="arrangements_display" style="display: inline-block; width: 100%"></canvas><br>
         <a id="download_button" download="arrangements.jpg" href="">Download this image</a><br>
     </div>
 
