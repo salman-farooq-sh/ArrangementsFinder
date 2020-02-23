@@ -1,0 +1,28 @@
+#search_button {
+    display: inline-block;
+    font-size: larger;
+    width: 20%;
+    margin: 20px 40% 30px;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 50px;
+
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
+
+#search_button:hover {
+    box-shadow: 4px 4px 13px gray;
+}
+
+#search_bar {
+    display: inline-block;
+    font-size: larger;
+    width: 90%;
+
+    padding: 15px 20px;
+    margin: 10px;
+    border-radius: 40px;
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
