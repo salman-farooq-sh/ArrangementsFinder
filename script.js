@@ -41,7 +41,7 @@ function draw_frame( num_sections ) {
 
     context.lineWidth = "1px";
     for(let i = 1; i < num_sections; ++i ) {
-        let space = 15;
+        let space = 0;
 
         let section_height = canvas.height / num_sections;
 
