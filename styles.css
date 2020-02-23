@@ -43,10 +43,6 @@
     background-color: white;
 }
 
-#search_button:hover {
-    box-shadow: 4px 4px 13px gray;
-}
-
 #display_area {
     margin: 50px 10px 0px;
 }
@@ -57,7 +53,7 @@
     width: fit-content;
     height: fit-content;
 
-    margin: 30px 10px 0px;
+    margin: 30px 10px 40px;
 
     padding: 23px 40px;
 
