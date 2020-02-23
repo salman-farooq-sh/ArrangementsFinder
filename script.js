@@ -26,7 +26,7 @@ function draw_on_canvas( arrangements ) {
     let num_sections = arrangements.length;
     num_sections = num_sections < 4 ? 4 : num_sections;
 
-    draw_frame(num_sections);
+    // draw_frame(num_sections);
     draw_arrangements_text(num_sections, arrangements );
 }
 
@@ -83,13 +83,13 @@ function draw_arrangements_text(num_sections, arrangements) {
         context.textBaseline = "middle";
 
         context.font = "Bold " + (this_section_width/12).toString() + "px Lucida Console";
-        context.fillText(text_line_1, this_section_x + space, text_line_1_y, canvas.width - 2 * space);
+        context.fillText(text_line_1, this_section_x + space, text_line_1_y + 6, canvas.width - 2 * space);
 
-        context.font = "20px PT Mono";
-        context.fillText(text_line_2, this_section_x + space, text_line_2_y, canvas.width - 2 * space);
+        context.font = "21px Arial";
+        context.fillText(text_line_2, this_section_x + space, text_line_2_y - 1, canvas.width - 2 * space);
 
-        context.font = "20px PT Mono";
-        context.fillText(text_line_3, this_section_x + space, text_line_3_y, canvas.width - 2 * space);
+        context.font = "20px Arial";
+        context.fillText(text_line_3, this_section_x + space, text_line_3_y - 11, canvas.width - 2 * space);
     }
 }
 
