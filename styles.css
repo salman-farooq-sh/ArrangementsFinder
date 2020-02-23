@@ -39,6 +39,8 @@
     border: 2px black solid;
     border-radius: 500px;
     box-shadow: 4px 4px 10px gray;
+
+    background-color: white;
 }
 
 #search_button:hover {
@@ -47,4 +49,21 @@
 
 #display_area {
     margin: 50px 10px 0px;
+}
+
+#download_button {
+    font-size: 390%;
+
+    width: fit-content;
+    height: fit-content;
+
+    margin: 30px 10px 0px;
+
+    padding: 23px 40px;
+
+    border: 2px black solid;
+    border-radius: 500px;
+    box-shadow: 4px 4px 10px gray;
+
+    background-color: white;
 }

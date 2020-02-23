@@ -5,6 +5,7 @@ function show_arrangements() {
     if( arrangements.length === 0 ) {
         document.getElementById("nothing_found").style.display = "block";
         document.getElementById("display_area").style.display = "none";
+        document.getElementById("download_button_div").style.display = "none";
     } else {
         let canvas = document.getElementById("arrangements_display");
 
@@ -13,9 +14,10 @@ function show_arrangements() {
 
         draw_on_canvas( remove_unneeded_columns(arrangements) );
 
-        document.getElementById("download_button").href = canvas.toDataURL("image/jpg");
+        document.getElementById("download_anchor").href = canvas.toDataURL("image/jpg");
 
         document.getElementById("display_area").style.display = "block";
+        document.getElementById("download_button_div").style.display = "block";
         document.getElementById("nothing_found").style.display = "none";
     }
 }
@@ -146,6 +148,9 @@ function requested_arrangements( registration_no ) {
     return result;
 }
 
+function click_download_anchor() {
+    document.getElementById("download_anchor").click();
+}
 
 
 

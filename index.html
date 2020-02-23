@@ -25,7 +25,7 @@
 
     <div style="padding: 25px 15px; border-bottom: 2px black solid;">
         <label id="website_purpose">
-            Why use this website?<br>
+            Why use this website?<br><br>
             Because, it saves you from:<br>
             <ol>
                 <li>Downloading Excel files.</li>
@@ -48,9 +48,25 @@
 
     <div id="display_area" style="display: none; text-align: center">
         <canvas id="arrangements_display" style="display: inline-block; width: 100%"></canvas><br>
-        <a id="download_button" download="arrangements.jpg" href="">Download this image</a><br>
+    </div>
+
+    <div id="download_button_div" style="display: none; text-align: center">
+        <button id="download_button" style="display: inline-block" onclick="click_download_anchor()" type="button">
+            Download this image
+        </button>
+        <a id="download_anchor" download="arrangements.jpg" href=""></a>
     </div>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
