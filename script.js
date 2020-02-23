@@ -8,7 +8,10 @@ function show_arrangements() {
     } else {
         let canvas = document.getElementById("arrangements_display");
 
-        draw_on_canvas(canvas);
+        canvas.width  = window.innerWidth - 50;
+        canvas.height = canvas.width * 16/9;
+
+        draw_on_canvas( remove_unneeded_columns(arrangements) );
 
         document.getElementById("download_button").href = canvas.toDataURL("image/jpg");
 
@@ -17,25 +20,72 @@ function show_arrangements() {
     }
 }
 
-function draw_on_canvas( canvas ) {
-    canvas.width  = window.innerWidth - 20;
-    canvas.height = canvas.width * 16 / 9;
+function draw_on_canvas( arrangements ) {
+    let num_sections = 5;
 
+    draw_frame(num_sections);
+    draw_arrangements_text(num_sections, arrangements );
+}
+
+function draw_frame( num_sections ) {
+    let canvas = document.getElementById("arrangements_display");
     let context = canvas.getContext("2d");
-    context.fillStyle = "green";
-    context.fillRect(0,0, canvas.width,canvas.height);
-}
 
-function pretty_string( registration_no ) {
-    arrangements = remove_unneeded_columns( requested_arrangements(registration_no) );
+    context.strokeStyle = "red";
+    context.lineWidth = "1px";
 
-    let pretty_rows = "";
-    for(let i = 0; i < arrangements.length; i++) {
-        pretty_rows += arrangements[i].join(", ") + "<br>\n";
+    context.strokeRect(0,0, canvas.width,canvas.height);
+
+    for(let i = 1; i < num_sections; ++i ) {
+        let section_height = canvas.height / num_sections;
+
+        context.beginPath();
+        context.moveTo(0,            i*section_height);
+        context.lineTo(canvas.width, i*section_height);
+        context.stroke();
     }
-
-    return pretty_rows;
 }
+function draw_arrangements_text(num_sections, arrangements ) {
+    let canvas = document.getElementById("arrangements_display");
+    let context = canvas.getContext("2d");
+
+    for(let i = 0; i < num_sections; ++i ) {
+        let row_for_this_section = arrangements[i];
+
+        let this_section_width  = canvas.width;
+        let this_section_height = canvas.height / num_sections;
+        let this_section_x      = 0;
+        let this_section_y      = i * this_section_height;
+
+        // there will be 3 lines of text per section:
+        let text_line_height    = this_section_height / 3;
+
+        let text_line_1_y       = this_section_y + 1 * text_line_height/2;
+        let text_line_2_y       = this_section_y + 3 * text_line_height/2;
+        let text_line_3_y       = this_section_y + 5 * text_line_height/2;
+
+        let text_line_1 = row_for_this_section[0];
+        let text_line_2 = row_for_this_section[1] + " at " + row_for_this_section[2];
+        let text_line_3 = row_for_this_section[3];
+
+        context.font = "20px PT Mono";
+        context.textBaseline = "middle";
+        context.fillText(text_line_1, this_section_x, text_line_1_y, canvas.width);
+        context.fillText(text_line_2, this_section_x, text_line_2_y, canvas.width);
+        context.fillText(text_line_3, this_section_x, text_line_3_y, canvas.width);
+    }
+}
+
+// function pretty_string( registration_no ) {
+//     arrangements = remove_unneeded_columns( requested_arrangements(registration_no) );
+//
+//     let pretty_rows = "";
+//     for(let i = 0; i < arrangements.length; i++) {
+//         pretty_rows += arrangements[i].join(", ") + "<br>\n";
+//     }
+//
+//     return pretty_rows;
+// }
 
 function remove_unneeded_columns( arrangements ) {
     for (let i = 0; i < arrangements.length; i++) {
@@ -80,7 +130,6 @@ function requested_arrangements( registration_no ) {
 
     return result;
 }
-
 
 
 
