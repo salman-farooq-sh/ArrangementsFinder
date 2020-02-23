@@ -21,7 +21,8 @@ function show_arrangements() {
 }
 
 function draw_on_canvas( arrangements ) {
-    let num_sections = 5;
+    let num_sections = arrangements.length;
+    num_sections = num_sections < 4 ? 4 : num_sections;
 
     draw_frame(num_sections);
     draw_arrangements_text(num_sections, arrangements );
@@ -51,11 +52,11 @@ function draw_frame( num_sections ) {
         context.stroke();
     }
 }
-function draw_arrangements_text(num_sections, arrangements ) {
+function draw_arrangements_text(num_sections, arrangements) {
     let canvas = document.getElementById("arrangements_display");
     let context = canvas.getContext("2d");
 
-    for(let i = 0; i < num_sections; ++i ) {
+    for(let i = 0; i < arrangements.length; ++i ) {
         let row_for_this_section = arrangements[i];
 
         let this_section_width  = canvas.width;
