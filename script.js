@@ -1,5 +1,5 @@
 function show_arrangements() {
-    let registration_no = parseInt(document.getElementById("reg_no").value);
+    let registration_no = parseInt(document.getElementById("search_bar").value);
     let arrangements = requested_arrangements(registration_no);
 
     if( arrangements.length === 0 ) {
@@ -8,7 +8,7 @@ function show_arrangements() {
     } else {
         let canvas = document.getElementById("arrangements_display");
 
-        canvas.width  = 350;//window.innerWidth - 50;
+        canvas.width  = window.innerWidth - 50;
         canvas.height = canvas.width * 16/9;
 
         draw_on_canvas( remove_unneeded_columns(arrangements) );
@@ -76,11 +76,17 @@ function draw_arrangements_text(num_sections, arrangements ) {
                           row_for_this_section[2].replace(":00.0", "").replace(":00.0", "");
         let text_line_3 = row_for_this_section[3];
 
-        context.font = "20px PT Mono";
+        let space = 10;
         context.textBaseline = "middle";
-        context.fillText(text_line_1, this_section_x, text_line_1_y, canvas.width);
-        context.fillText(text_line_2, this_section_x, text_line_2_y, canvas.width);
-        context.fillText(text_line_3, this_section_x, text_line_3_y, canvas.width);
+
+        context.font = "Bold " + (this_section_width/12).toString() + "px Lucida Console";
+        context.fillText(text_line_1, this_section_x + space, text_line_1_y, canvas.width - 2 * space);
+
+        context.font = "20px PT Mono";
+        context.fillText(text_line_2, this_section_x + space, text_line_2_y, canvas.width - 2 * space);
+
+        context.font = "20px PT Mono";
+        context.fillText(text_line_3, this_section_x + space, text_line_3_y, canvas.width - 2 * space);
     }
 }
 
