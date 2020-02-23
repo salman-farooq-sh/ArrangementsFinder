@@ -21,7 +21,7 @@
     text-align: center;
 
     border: 2px black solid;
-    border-radius: 500px;
+    /*border-radius: 500px;*/
     box-shadow: 4px 4px 10px gray;
 }
 
@@ -33,7 +33,7 @@
 
     margin: 30px 10px 0px;
 
-    padding: 23px 40px;
+    padding: 20px 40px 30px;
 
     border: 2px black solid;
     border-radius: 500px;
@@ -48,14 +48,14 @@
 }
 
 #download_button {
-    font-size: 390%;
+    font-size: 380%;
 
     width: fit-content;
     height: fit-content;
 
     margin: 30px 10px 240px;
 
-    padding: 23px 40px;
+    padding: 20px 45px 30px;
 
     border: 2px black solid;
     border-radius: 500px;
