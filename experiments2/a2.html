@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+        window.onload = function () {
+            let canvas = document.getElementById("display");
+            canvas.width  = 1080;
+            canvas.height = 500;
+
+            let context = canvas.getContext("2d");
+
+            context.fillStyle = "grey";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.strokeStyle = "red";
+            context.strokeRect(0,0, canvas.width,canvas.height);
+
+
+            context.font = "160px PT Mono";
+            context.textBaseline = "top";
+            context.fillText("3aman",0,0);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="display"></canvas>
+</body>
+</html>
