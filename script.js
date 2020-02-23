@@ -39,8 +39,8 @@ function draw_frame( num_sections ) {
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = saved_fill_style;
 
-    context.strokeStyle = "black";
-    context.strokeRect(1,1, canvas.width-1,canvas.height-1);
+    // context.strokeStyle = "black";
+    // context.strokeRect(1,1, canvas.width-1,canvas.height-1);
 
     context.lineWidth = "1px";
     for(let i = 1; i < num_sections; ++i ) {

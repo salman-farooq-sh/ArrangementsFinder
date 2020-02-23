@@ -43,7 +43,8 @@
 }
 
 #display_area {
-    margin: 50px 10px 0px;
+    margin: 50px 40px 0px;
+    border: 2px black solid;
 }
 
 #download_button {
