@@ -34,11 +34,6 @@ function draw_frame( num_sections ) {
     let canvas = document.getElementById("arrangements_display");
     let context = canvas.getContext("2d");
 
-    let saved_fill_style = context.fillStyle;
-    context.fillStyle = "white";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = saved_fill_style;
-
     // context.strokeStyle = "black";
     // context.strokeRect(1,1, canvas.width-1,canvas.height-1);
 
@@ -58,6 +53,11 @@ function draw_arrangements_text(num_sections, arrangements) {
     let canvas = document.getElementById("arrangements_display");
     let context = canvas.getContext("2d");
 
+    let saved_fill_style = context.fillStyle;
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = saved_fill_style;
+
     for(let i = 0; i < arrangements.length; ++i ) {
         let row_for_this_section = arrangements[i];
 
@@ -75,9 +75,9 @@ function draw_arrangements_text(num_sections, arrangements) {
 
         let text_line_1 = row_for_this_section[0];
         let text_line_2 = row_for_this_section[1].replace(",", ", ") +
-                            " at " +
+                            ", " +
                           row_for_this_section[2].replace(":00.0", "").replace(":00.0", "");
-        let text_line_3 = row_for_this_section[3];
+        let text_line_3 = row_for_this_section[3].replace("1_SEECS-", "").replace("2_SEECS ", "").replace("Labs-", "");
 
         let space = 10;
         context.textBaseline = "middle";
