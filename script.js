@@ -8,7 +8,7 @@ function show_arrangements() {
     } else {
         let canvas = document.getElementById("arrangements_display");
 
-        canvas.width  = window.innerWidth - 50;
+        canvas.width  = 350;//window.innerWidth - 50;
         canvas.height = canvas.width * 16/9;
 
         draw_on_canvas( remove_unneeded_columns(arrangements) );
@@ -31,17 +31,23 @@ function draw_frame( num_sections ) {
     let canvas = document.getElementById("arrangements_display");
     let context = canvas.getContext("2d");
 
-    context.strokeStyle = "red";
+    let saved_fill_style = context.fillStyle;
+    context.fillStyle = "white";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = saved_fill_style;
+
+    context.strokeStyle = "black";
+    context.strokeRect(1,1, canvas.width-1,canvas.height-1);
+
     context.lineWidth = "1px";
-
-    context.strokeRect(0,0, canvas.width,canvas.height);
-
     for(let i = 1; i < num_sections; ++i ) {
+        let space = 15;
+
         let section_height = canvas.height / num_sections;
 
         context.beginPath();
-        context.moveTo(0,            i*section_height);
-        context.lineTo(canvas.width, i*section_height);
+        context.moveTo(space, i*section_height);
+        context.lineTo(canvas.width - space, i*section_height);
         context.stroke();
     }
 }
@@ -65,7 +71,9 @@ function draw_arrangements_text(num_sections, arrangements ) {
         let text_line_3_y       = this_section_y + 5 * text_line_height/2;
 
         let text_line_1 = row_for_this_section[0];
-        let text_line_2 = row_for_this_section[1] + " at " + row_for_this_section[2];
+        let text_line_2 = row_for_this_section[1].replace(",", ", ") +
+                            " at " +
+                          row_for_this_section[2].replace(":00.0", "").replace(":00.0", "");
         let text_line_3 = row_for_this_section[3];
 
         context.font = "20px PT Mono";
