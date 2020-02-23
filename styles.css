@@ -5,6 +5,12 @@
     font-family: "PT Mono";
 }
 
+#website_purpose {
+    font-size: 60%;
+    font-family: "Helvetica Neue";
+    color: #090909;
+}
+
 #search_bar {
     font-size: 400%;
 
