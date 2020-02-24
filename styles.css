@@ -31,9 +31,9 @@
     width: fit-content;
     height: fit-content;
 
-    margin: 30px 10px 0px;
+    margin: 50px 10px 0px;
 
-    padding: 20px 40px 30px;
+    padding: 20px 40px 27px;
 
     border: 2px black solid;
     border-radius: 500px;
@@ -42,13 +42,14 @@
     background-color: white;
 }
 
-#search_button:active {
-    background-color: gray;
-}
+/*#search_button:active {*/
+/*    background-color: gray;*/
+/*}*/
 
 #display_area {
     margin: 50px 40px 0px;
     border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
 }
 
 #download_button {
@@ -59,7 +60,7 @@
 
     margin: 30px 10px 240px;
 
-    padding: 20px 45px 30px;
+    padding: 20px 45px 27px;
 
     border: 2px black solid;
     border-radius: 500px;
