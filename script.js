@@ -7,14 +7,7 @@ function show_arrangements() {
         document.getElementById("display_area").style.display = "none";
         document.getElementById("download_button_div").style.display = "none";
     } else {
-        let canvas = document.getElementById("arrangements_display");
-
-        canvas.width  = 350;
-        canvas.height = canvas.width * 16/9;
-
         draw_on_canvas( remove_unneeded_columns(arrangements) );
-
-        document.getElementById("download_anchor").href = canvas.toDataURL("image/jpg");
 
         document.getElementById("display_area").style.display = "block";
         document.getElementById("download_button_div").style.display = "block";
@@ -26,8 +19,20 @@ function draw_on_canvas( arrangements ) {
     let num_sections = arrangements.length;
     num_sections = num_sections < 4 ? 4 : num_sections;
 
+    let canvas = document.getElementById("arrangements_display");
+
+    canvas.width  = 1440;
+    canvas.height = canvas.width * 16/9;
+
     // draw_frame(num_sections);
     draw_arrangements_text(num_sections, arrangements );
+
+    let drawn_image = canvas.toDataURL("image/jpg");
+    document.getElementById("download_anchor").href = canvas.toDataURL("image/jpg");
+
+    let image_frame = document.getElementById("image_frame");
+    image_frame.height = document.getElementById("search_bar").clientWidth * 16/9;
+    image_frame.src = drawn_image;
 }
 
 function draw_frame( num_sections ) {

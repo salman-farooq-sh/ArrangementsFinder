@@ -49,6 +49,19 @@
     background-color: white;
 }
 
+#nothing_found {
+    font-size: 400%;
+
+    width: 90%;
+
+    margin: 50px 0px;
+
+    padding: 25px 30px 30px;
+
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
+
 /*#search_button:active {*/
 /*    background-color: gray;*/
 /*}*/
@@ -65,7 +78,7 @@
     width: fit-content;
     height: fit-content;
 
-    margin: 30px 10px 240px;
+    margin: 50px 10px 240px;
 
     padding: 20px 45px 27px;
 
