@@ -14,6 +14,8 @@ function show_arrangements() {
         document.getElementById("display_area").style.display = "block";
         document.getElementById("download_button_div").style.display = "block";
         document.getElementById("nothing_found").style.display = "none";
+
+        window.scrollTo(0,document.body.scrollHeight);
     }
 }
 
@@ -87,7 +89,7 @@ function draw_arrangements_text(num_sections, arrangements) {
                           row_for_this_section[2].replace(":00.0", "").replace(":00.0", "");
         let text_line_3 = row_for_this_section[3].replace("1_SEECS-", "").replace("2_SEECS ", "").replace("Labs-", "");
 
-        let space = 55;
+        let space = 30;
         context.textBaseline = "middle";
 
         context.font = "Bold " + (this_section_width/12).toString() + "px Lucida Console";
@@ -180,38 +182,3 @@ function click_download_anchor() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let input = document.getElementById("myInput");
-input.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("myBtn").click();
-    }
-});
