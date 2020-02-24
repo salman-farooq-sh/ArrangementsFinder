@@ -31,6 +31,7 @@ function draw_on_canvas( arrangements ) {
     document.getElementById("download_anchor").href = canvas.toDataURL("image/jpg");
 
     let image_frame = document.getElementById("image_frame");
+    // image_frame.width = document.getElementById("search_bar").clientWidth;
     image_frame.height = document.getElementById("search_bar").clientWidth * 16/9;
     image_frame.src = drawn_image;
 }
@@ -89,13 +90,13 @@ function draw_arrangements_text(num_sections, arrangements) {
         context.textBaseline = "middle";
 
         context.font = "Bold " + (this_section_width/12).toString() + "px Lucida Console";
-        context.fillText(text_line_1, this_section_x + space, text_line_1_y + 6, canvas.width - 2 * space);
+        context.fillText(text_line_1, this_section_x + space, text_line_1_y + 6, canvas.width - 2*space);
 
-        context.font = "21px Arial";
-        context.fillText(text_line_2, this_section_x + space, text_line_2_y - 4, canvas.width - 2 * space);
+        context.font = (this_section_width/14).toString() + "px Arial";
+        context.fillText(text_line_2, this_section_x + space, text_line_2_y - 25, canvas.width - 2*space);
 
-        context.font = "20px Arial";
-        context.fillText(text_line_3, this_section_x + space, text_line_3_y - 17, canvas.width - 2 * space);
+        context.font = (this_section_width/15).toString() + "px Arial";
+        context.fillText(text_line_3, this_section_x + space, text_line_3_y - 70, canvas.width - 2*space);
     }
 }
 
