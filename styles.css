@@ -18,7 +18,7 @@
     margin: 50px 10px 0px;
 
     padding: 25px 40px;
-    text-align: center;
+    /*text-align: center;*/
 
     border: 2px black solid;
     /*border-radius: 500px;*/
@@ -40,6 +40,10 @@
     box-shadow: 4px 4px 10px gray;
 
     background-color: white;
+}
+
+#search_button:active {
+    background-color: gray;
 }
 
 #display_area {

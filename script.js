@@ -74,6 +74,7 @@ function draw_arrangements_text(num_sections, arrangements) {
         let text_line_3_y       = this_section_y + 5 * text_line_height/2;
 
         let text_line_1 = row_for_this_section[0];
+        if( text_line_1.length > 35 ) { text_line_1 = text_line_1.substr(0, 35) + "..."; }
         let text_line_2 = row_for_this_section[1].replace(",", ", ") +
                             ", " +
                           row_for_this_section[2].replace(":00.0", "").replace(":00.0", "");
@@ -86,10 +87,10 @@ function draw_arrangements_text(num_sections, arrangements) {
         context.fillText(text_line_1, this_section_x + space, text_line_1_y + 6, canvas.width - 2 * space);
 
         context.font = "21px Arial";
-        context.fillText(text_line_2, this_section_x + space, text_line_2_y - 1, canvas.width - 2 * space);
+        context.fillText(text_line_2, this_section_x + space, text_line_2_y - 4, canvas.width - 2 * space);
 
         context.font = "20px Arial";
-        context.fillText(text_line_3, this_section_x + space, text_line_3_y - 11, canvas.width - 2 * space);
+        context.fillText(text_line_3, this_section_x + space, text_line_3_y - 17, canvas.width - 2 * space);
     }
 }
 
