@@ -4,6 +4,13 @@
     font-family: "PT Mono";
 }
 
+#website_purpose_div {
+    margin: 0px 30px 0px;
+    
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
+
 #website_purpose {
     font-size: 10px;
     font-family: "Helvetica Neue";
