@@ -12,6 +12,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function(event) {
             document.getElementById('search_bar').value = '245634';
+
+            // Make sure this code gets executed after the DOM is loaded.
+            document.querySelector("#search_bar").addEventListener("keyup", event => {
+                if(event.key !== "Enter") return; // Use `.key` instead.
+                document.querySelector("#search_button").click(); // Things you want to do.
+                event.preventDefault(); // No need to `return false;`.
+            });
         });
     </script>
 </head>
@@ -39,7 +46,7 @@
     </div>
 
     <div style="text-align: center; padding: 0px 34px 0px 20px">
-        <input id="search_bar" style="display: inline-block" type="text" autofocus placeholder=" registration number..."><br>
+        <input id="search_bar" style="display: inline-block" type="text" autofocus placeholder=" Registration number..."><br>
     </div>
 
     <div style="text-align: center">

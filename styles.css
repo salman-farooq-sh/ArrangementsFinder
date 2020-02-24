@@ -19,6 +19,7 @@
 
 #search_bar {
     font-size: 400%;
+    font-style: italic;
 
     width: 90%;
 
@@ -61,9 +62,9 @@
     /*font-family: "Helvetica Neue";*/
 }
 
-/*#search_button:active {*/
-/*    background-color: gray;*/
-/*}*/
+#search_button:active, #download_button:active {
+    background-color: lightgray;
+}
 
 #display_area {
     margin: 50px 40px 0px;
@@ -89,4 +90,8 @@
     box-shadow: 4px 4px 10px gray;
 
     background-color: white;
+}
+
+:focus {
+    outline: none;
 }
