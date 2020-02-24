@@ -6,6 +6,8 @@ function show_arrangements() {
         document.getElementById("nothing_found").style.display = "block";
         document.getElementById("display_area").style.display = "none";
         document.getElementById("download_button_div").style.display = "none";
+
+        alert("No Results :(");
     } else {
         draw_on_canvas( remove_unneeded_columns(arrangements) );
 
@@ -31,7 +33,6 @@ function draw_on_canvas( arrangements ) {
     document.getElementById("download_anchor").href = canvas.toDataURL("image/jpg");
 
     let image_frame = document.getElementById("image_frame");
-    // image_frame.width = document.getElementById("search_bar").clientWidth;
     image_frame.height = document.getElementById("search_bar").clientWidth * 16/9;
     image_frame.src = drawn_image;
 }
@@ -70,7 +71,7 @@ function draw_arrangements_text(num_sections, arrangements) {
         let this_section_width  = canvas.width;
         let this_section_height = canvas.height / num_sections;
         let this_section_x      = 0;
-        let this_section_y      = i * this_section_height;
+        let this_section_y      = i*this_section_height + 35;
 
         // there will be 3 lines of text per section:
         let text_line_height    = this_section_height / 3;
@@ -86,7 +87,7 @@ function draw_arrangements_text(num_sections, arrangements) {
                           row_for_this_section[2].replace(":00.0", "").replace(":00.0", "");
         let text_line_3 = row_for_this_section[3].replace("1_SEECS-", "").replace("2_SEECS ", "").replace("Labs-", "");
 
-        let space = 10;
+        let space = 55;
         context.textBaseline = "middle";
 
         context.font = "Bold " + (this_section_width/12).toString() + "px Lucida Console";

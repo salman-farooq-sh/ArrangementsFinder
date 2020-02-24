@@ -49,17 +49,16 @@
     background-color: white;
 }
 
-#nothing_found {
-    font-size: 400%;
-
-    width: 90%;
-
-    margin: 50px 0px;
-
-    padding: 25px 30px 30px;
+#nothing_found_div {
+    margin: 50px 30px 0px;
 
     border: 2px black solid;
     box-shadow: 4px 4px 10px gray;
+}
+
+#nothing_found {
+    font-size: 380%;
+    /*font-family: "Helvetica Neue";*/
 }
 
 /*#search_button:active {*/
@@ -69,7 +68,7 @@
 #display_area {
     margin: 50px 40px 0px;
 
-    padding: 15px;
+    padding: 15px 0px;
 
     border: 2px black solid;
     box-shadow: 4px 4px 10px gray;
