@@ -1,7 +1,7 @@
-let arrangements_csv_as_string;
+let parsed_csv;
 
 window.addEventListener('load', function () {
-    arrangements_csv_as_string = get_arrangements_csv_as_string();
+    parsed_csv = get_parsed_arrangements_csv();
     document.querySelector("#search_bar").addEventListener("keyup", event => {
         if(event.key !== "Enter") return; // Use `.key` instead.
         document.querySelector("#search_button").click(); // Things you want to do.
@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
     });
 });
 
-function get_arrangements_csv_as_string() {
+function arrangements_csv_as_string() {
     let arrangements_csv_file_path = "arrangements.csv";
 
     let xmlhttp = new XMLHttpRequest();
@@ -20,7 +20,7 @@ function get_arrangements_csv_as_string() {
 
 function show_arrangements() {
     let registration_no = parseInt(document.getElementById("search_bar").value);
-    let arrangements = requested_arrangements(registration_no);
+    let arrangements = remove_unneeded_columns(requested_arrangements(registration_no));
 
     if( arrangements.length === 0 ) {
         document.getElementById("nothing_found").style.display = "block";
@@ -29,7 +29,7 @@ function show_arrangements() {
 
         alert("No Results :(");
     } else {
-        draw_on_canvas( remove_unneeded_columns(arrangements) );
+        draw_on_canvas( arrangements );
 
         document.getElementById("display_area").style.display = "block";
         document.getElementById("download_button_div").style.display = "block";
@@ -37,6 +37,13 @@ function show_arrangements() {
 
         window.scrollTo(0,document.body.scrollHeight);
     }
+}
+
+// to be called after calling remove_unneeded_columns() on the data
+function sort_arrangements_by_date( arrangements ) {
+    let result = arrangements;
+
+    return result;
 }
 
 function draw_on_canvas( arrangements ) {
@@ -123,31 +130,23 @@ function draw_arrangements_text(num_sections, arrangements) {
     }
 }
 
-// function pretty_string( registration_no ) {
-//     arrangements = remove_unneeded_columns( requested_arrangements(registration_no) );
-//
-//     let pretty_rows = "";
-//     for(let i = 0; i < arrangements.length; i++) {
-//         pretty_rows += arrangements[i].join(", ") + "<br>\n";
-//     }
-//
-//     return pretty_rows;
-// }
+function remove_unneeded_columns( requested_arrangements ) {
+    // making a deep copy because we will modify "parsed_csv" indirectly otherwise
+    let result = JSON.parse(JSON.stringify(requested_arrangements));
 
-function remove_unneeded_columns( arrangements ) {
-    for (let i = 0; i < arrangements.length; i++) {
-        arrangements[i].splice(4, 1);
-        arrangements[i].splice(3, 1);
-        arrangements[i].splice(1, 1);
-        arrangements[i].splice(0, 1);
+    for (let i = 0; i < requested_arrangements.length; i++) {
+        result[i].splice(4, 1);
+        result[i].splice(3, 1);
+        result[i].splice(1, 1);
+        result[i].splice(0, 1);
     }
 
-    return arrangements;
+    return result;
 }
 
 // Returns an array of rows, a row is an array of cell values
-function parsed_arrangements_csv() {
-    let parsed_csv = Papa.parse(arrangements_csv_as_string, {header: false});
+function get_parsed_arrangements_csv() {
+    let parsed_csv = Papa.parse(arrangements_csv_as_string(), {header: false});
     return parsed_csv.data;
 }
 
@@ -156,9 +155,8 @@ function parsed_arrangements_csv() {
 // If no matching rows are found, an empty array is returned.
 function requested_arrangements( registration_no ) {
     let result = [];
-    let parsed_csv = parsed_arrangements_csv();
 
-    for( let i = 0; i < parsed_csv.length; i++ ) {
+    for( let i = 1; i < parsed_csv.length; i++ ) {
         let row = parsed_csv[i];
 
         if( parseInt(row[0]) === registration_no ) {
