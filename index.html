@@ -25,13 +25,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function(event) {
             // document.getElementById('search_bar').value = '245634';
-
-            // Make sure this code gets executed after the DOM is loaded.
-            document.querySelector("#search_bar").addEventListener("keyup", event => {
-                if(event.key !== "Enter") return; // Use `.key` instead.
-                document.querySelector("#search_button").click(); // Things you want to do.
-                event.preventDefault(); // No need to `return false;`.
-            });
         });
     </script>
 </head>

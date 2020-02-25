@@ -1,3 +1,23 @@
+let arrangements_csv_as_string;
+
+window.addEventListener('load', function () {
+    arrangements_csv_as_string = get_arrangements_csv_as_string();
+    document.querySelector("#search_bar").addEventListener("keyup", event => {
+        if(event.key !== "Enter") return; // Use `.key` instead.
+        document.querySelector("#search_button").click(); // Things you want to do.
+        event.preventDefault(); // No need to `return false;`.
+    });
+});
+
+function get_arrangements_csv_as_string() {
+    let arrangements_csv_file_path = "arrangements.csv";
+
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", arrangements_csv_file_path, false);
+    xmlhttp.send();
+    return xmlhttp.responseText;
+}
+
 function show_arrangements() {
     let registration_no = parseInt(document.getElementById("search_bar").value);
     let arrangements = requested_arrangements(registration_no);
@@ -125,18 +145,9 @@ function remove_unneeded_columns( arrangements ) {
     return arrangements;
 }
 
-function arrangements_csv_as_string() {
-    let arrangements_csv_file_path = "arrangements.csv";
-
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", arrangements_csv_file_path, false);
-    xmlhttp.send();
-    return xmlhttp.responseText;
-}
-
 // Returns an array of rows, a row is an array of cell values
 function parsed_arrangements_csv() {
-    let parsed_csv = Papa.parse(arrangements_csv_as_string(), {header: false});
+    let parsed_csv = Papa.parse(arrangements_csv_as_string, {header: false});
     return parsed_csv.data;
 }
 
