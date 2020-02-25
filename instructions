@@ -1,0 +1,29 @@
+open excel file in google sheets
+
+click "file" > "save as google sheets"
+
+select whole column F
+
+insert a new empty column to its right
+
+split column F
+
+select all cells of sheet
+
+sort on column G
+
+make a new column on right of column G
+
+select column H
+
+apply formula "=ARRAYFORMULA(f1:f & "," & g1:g)"
+
+select column H and copy all its values
+
+select column H and right click > Paste special > Paste values only
+
+delete column F and G
+
+download as "arrangements.csv"
+
+move "arrangements.csv" to github
