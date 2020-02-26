@@ -78,9 +78,9 @@ body{
     border: solid 1px rgba(0,0,0,.08);
     border-radius: 10px;
     outline: none;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 3px 5px rgba(0,0,0,.1);
+    box-shadow: 0 8px 5px rgba(0,0,0,.1);
     margin-top: 20px;
 }
 
@@ -110,7 +110,7 @@ body{
 
 #download_button {
     /* font-size: 390%; */
-    font-size: 18px;
+    /*font-size: 18px;*/
 
     /* margin: 50px 10px 0px; */
 
@@ -126,14 +126,14 @@ body{
 
 
     padding: 12px 40px;
-    background: #FAFAFA;
-    color: rgba(0,0,0,.8);
+    background: white; 
+    color: black;
     border: solid 1px rgba(0,0,0,.08);
     border-radius: 10px;
     outline: none;
-    font-size: 16px;
+    font-size: 23px;
     cursor: pointer;
-    box-shadow: 0 3px 5px rgba(0,0,0,.1);
+    box-shadow: 0 8px 5px rgba(0,0,0,.1);
     margin-top: 40px;
     margin-bottom: 80px;
 }

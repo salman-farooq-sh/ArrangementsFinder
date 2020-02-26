@@ -32,7 +32,7 @@ function show_arrangements() {
                 )
             )
         );
-    
+
     if( arrangements.length === 0 ) {
         document.getElementById("nothing_found").style.display = "block";
         document.getElementById("display_area").style.display = "none";
