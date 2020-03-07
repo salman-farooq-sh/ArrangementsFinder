@@ -51,7 +51,7 @@ function show_arrangements() {
 
         document.getElementById("nothing_found").style.display = "none";
 
-        // window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, 300);
     }
 }
 
