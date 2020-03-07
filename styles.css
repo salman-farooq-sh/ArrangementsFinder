@@ -128,7 +128,7 @@ body{
     padding: 12px 40px;
     background: white; 
     color: black;
-    border: solid 1px rgba(0,0,0,.08);
+    border: solid 1px rgba(0,0,0,.2);
     border-radius: 10px;
     outline: none;
     font-size: 23px;

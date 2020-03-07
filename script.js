@@ -25,7 +25,7 @@ function show_arrangements() {
             sort_arrangements_by_time(
                 trim_arrangements_text(
                     remove_unneeded_columns(
-                        requested_arrangements(
+                        get_requested_arrangements(
                             registration_no
                         )
                     )
@@ -232,7 +232,7 @@ function get_parsed_arrangements_csv() {
 // Returns an array of rows, this array contains those rows
 // which have the passed "registration_no" in the first cell.
 // If no matching rows are found, an empty array is returned.
-function requested_arrangements( registration_no ) {
+function get_requested_arrangements( registration_no ) {
     let result = [];
 
     for( let i = 1; i < parsed_csv.length; i++ ) {

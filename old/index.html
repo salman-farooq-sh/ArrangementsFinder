@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+    <title>Arrangements Finder!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js" integrity="sha256-Fh801SO9gqegfUdkDxyzXzIUPWzO/Vatqj8uN+5xcL4=" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+<!--remove this-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function(event) {
+            // document.getElementById('search_bar').value = '245634';
+
+            // Make sure this code gets executed after the DOM is loaded.
+            document.querySelector("#search_bar").addEventListener("keyup", event => {
+                if(event.key !== "Enter") return; // Use `.key` instead.
+                document.querySelector("#search_button").click(); // Things you want to do.
+                event.preventDefault(); // No need to `return false;`.
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div style="text-align: center; padding: 35px 30px 55px;">
+        <div style="padding: 40px 40px; border: 2px black solid; box-shadow: 4px 4px 10px gray;">
+            <label id="website_name">
+                Sitting Plan Finder
+            </label>
+        </div>
+    </div>
+
+    <div id="website_purpose_div" style="padding: 25px 15px;">
+        <label id="website_purpose">
+            Why use this website?<br><br>
+            Because, it saves you from:<br>
+            <ol>
+                <li>Downloading excel files.</li>
+                <li>Getting lost in these excel files while searching for your sitting plans.</li>
+                <li>Manually taking awkward screenshots of your sitting plans and cropping them.</li>
+            </ol>
+            Download an easy-to-glance, portrait image of relevant information!
+        </label>
+    </div>
+
+    <div style="text-align: center; padding: 0px 34px 0px 20px">
+        <input id="search_bar" style="display: inline-block" type="number" autofocus placeholder=" Registration number..."><br>
+    </div>
+
+    <div style="text-align: center">
+        <button id="search_button" style="display: inline-block" type="button" onclick="show_arrangements()">Find</button><br>
+    </div>
+
+    <div id="nothing_found_div" style="display: none; text-align: center">
+        <label id="nothing_found" style="display: inline-block" >
+            No Results :(
+        </label>
+    </div>
+
+    <div id="display_area" style="display: none; text-align: center">
+        <img id="image_frame" src="" width="100%">
+        <canvas id="arrangements_display" style="display: none;"></canvas>
+    </div>
+
+    <div id="download_button_div" style="display: none; text-align: center">
+        <button id="download_button" style="display: inline-block" onclick="click_download_anchor()" type="button">
+            Download this image
+        </button>
+        <a id="download_anchor" download="arrangements.jpg" href=""></a>
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

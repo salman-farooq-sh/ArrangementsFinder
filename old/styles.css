@@ -1,0 +1,102 @@
+#website_name {
+    font-weight: bold;
+    font-size: 600%;
+    font-family: "PT Mono";
+}
+
+#website_purpose_div {
+    margin: 0px 30px 0px;
+
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
+
+#website_purpose {
+    font-size: 10px;
+    font-family: "Helvetica Neue";
+    color: #080808;
+}
+
+#search_bar {
+    font-size: 400%;
+    font-style: italic;
+
+    width: 90%;
+
+    margin: 50px 10px 0px;
+    /*margin: 0px 10px 0px;*/
+
+    padding: 25px 40px;
+    /*text-align: center;*/
+
+    border: 2px black solid;
+    /*border-radius: 500px;*/
+    box-shadow: 4px 4px 10px gray;
+}
+
+#search_button {
+    font-size: 390%;
+
+    width: fit-content;
+    height: fit-content;
+
+    margin: 50px 10px 0px;
+
+    padding: 20px 40px 27px;
+
+    border: 2px black solid;
+    border-radius: 500px;
+    box-shadow: 4px 4px 10px gray;
+
+    background-color: white;
+}
+
+#nothing_found_div {
+    margin: 50px 30px 0px;
+
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
+
+#nothing_found {
+    font-size: 380%;
+    /*font-family: "Helvetica Neue";*/
+}
+
+#search_button:active, #download_button:active {
+    background-color: lightgray;
+}
+
+#display_area {
+    margin: 50px 40px 0px;
+
+    padding: 15px 0px;
+
+    border: 2px black solid;
+    box-shadow: 4px 4px 10px gray;
+}
+
+#download_button {
+    font-size: 380%;
+
+    width: fit-content;
+    height: fit-content;
+
+    margin: 50px 10px 100px;
+
+    padding: 20px 45px 27px;
+
+    border: 2px black solid;
+    border-radius: 500px;
+    box-shadow: 4px 4px 10px gray;
+
+    background-color: white;
+}
+
+:focus {
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
