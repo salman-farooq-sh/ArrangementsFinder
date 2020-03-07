@@ -59,22 +59,27 @@
         <div style="text-align: center; padding: 0 15px;">
             <input id="search_bar" style="display: inline-block" type="number" autofocus placeholder=" Registration number..."><br>
         </div>
-    
+
         <div style="text-align: center; padding: 0 15px;">
             <button id="search_button" style="display: inline-block" type="button" onclick="show_arrangements()">Find</button><br>
         </div>
-    
+
         <div id="nothing_found_div" style="display: none; text-align: center">
             <label id="nothing_found" style="display: inline-block" >
                 No Results :(
             </label>
         </div>
 
-        <div style="height: 50px;">
+        <div style="height: 32px;">
 
         </div>
-    
-        <div id="display_area" style="display: none; text-align: center;margin: 0 15px !important;">
+
+        <div id="name_bar_div" style="display: none; text-align: center; padding: 0 15px; margin-bottom: 16px">
+            <input id="name_bar" style="display: inline-block; text-align: center" readonly><br>
+        </div>
+
+
+        <div id="display_area" style="display: none; text-align: center; margin: 0 15px !important;">
             <img id="image_frame" src="" width="100%">
             <canvas id="arrangements_display" style="display: none;"></canvas>
         </div>

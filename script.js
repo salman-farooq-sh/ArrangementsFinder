@@ -20,41 +20,39 @@ function arrangements_csv_as_string() {
 
 function show_arrangements() {
     let registration_no = parseInt(document.getElementById("search_bar").value);
-    let arrangements =
+    let requested_arrangements = get_requested_arrangements(registration_no);
+    let arrangements_processed =
         sort_arrangements_by_date(
             sort_arrangements_by_time(
                 trim_arrangements_text(
                     remove_unneeded_columns(
-                        get_requested_arrangements(
-                            registration_no
-                        )
+                        requested_arrangements
                     )
                 )
             )
         );
 
-    if( arrangements.length === 0 ) {
+    if( arrangements_processed.length === 0 ) {
         document.getElementById("nothing_found").style.display = "block";
+
+        document.getElementById("name_bar_div").style.display = "none";
         document.getElementById("display_area").style.display = "none";
         document.getElementById("download_button_div").style.display = "none";
 
         alert("No Results :(");
     } else {
-        draw_on_canvas( arrangements );
+        draw_on_canvas( arrangements_processed );
 
+        document.getElementById("name_bar").value = requested_arrangements[0][1];
+
+        document.getElementById("name_bar_div").style.display = "block";
         document.getElementById("display_area").style.display = "block";
         document.getElementById("download_button_div").style.display = "block";
+
         document.getElementById("nothing_found").style.display = "none";
 
-        window.scrollTo(0,document.body.scrollHeight);
+        // window.scrollTo(0, document.body.scrollHeight);
     }
-}
-
-// to be called after calling remove_unneeded_columns() on the data
-function sort_arrangements_by_date( arrangements ) {
-    let result = arrangements;
-
-    return result;
 }
 
 function draw_on_canvas( arrangements ) {
@@ -99,7 +97,7 @@ function sort_arrangements_by_time( arrangements ) {
 }
 
 // to be called after calling remove_unneeded_columns() on the data
-// sorts the arrangements by time (but not by day)
+// sorts the arrangements by time
 function sort_arrangements_by_date( arrangements ) {
     let result = arrangements;
 

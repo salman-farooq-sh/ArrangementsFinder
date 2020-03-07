@@ -24,11 +24,13 @@ body{
     margin-bottom: 15px;
     line-height: 1.3em;
 }
+
 #website_purpose {
     font-size: 16px;
     color: #808080;
 }
-#search_bar {
+
+#search_bar, #name_bar {
     font-size: 18px;
     /* font-style: italic; */
     width: 100%;
