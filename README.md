@@ -1,3 +1,5 @@
+<i>For a demo, try entering 245634 <a href="https://salmanfarooqshiekh.github.io/ArrangementsFinder/">here</a></i>
+
 <h2>The Problem</h2>
 <p>
 	My school was emailing all of its students <strong>everyone's</strong> exam seating arrangements in a big Excel file.
