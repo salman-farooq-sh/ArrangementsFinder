@@ -1,4 +1,4 @@
-_For a demo, try entering "245634" [here](https://salmanfarooqshiekh.github.io/ArrangementsFinder/)_
+_For a demo, try entering "245634" [here](https://salmanfarooqshiekh.github.io/ArrangementsFinder/)._
 
 ## The Problem
 
