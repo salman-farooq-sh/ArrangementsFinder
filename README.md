@@ -25,11 +25,11 @@
 	by entering the university registration number in a simple search box.
 </p>
 
-<div style="display: inline-block; border:2px solid #fff; box-shadow: 10px 10px 5px #ccc;">
+<div style="display: inline-block;">
 	<h4>Before:</h4>
-	<img src="before_and_after/before.png" alt="Before Arrangements Finder" width="250">
+	<img style="border: 1px solid black; box-shadow: 10px 10px 5px #ccc;" src="before_and_after/before.png" alt="Before Arrangements Finder" width="250">
 </div>
 <div style="display: inline-block;">
 	<h4>After:</h4>
-	<img src="before_and_after/after.png" alt="After Arrangements Finder" width="300">
+	<img style="border: 1px solid black; box-shadow: 10px 10px 5px #ccc;" src="before_and_after/after.png" alt="After Arrangements Finder" width="250">
 </div>
