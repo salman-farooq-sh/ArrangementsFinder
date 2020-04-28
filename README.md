@@ -25,9 +25,9 @@
 	by entering the university registration number in a simple search box.
 </p>
 
-<div style="display: inline-block;">
+<div style="display: inline-block; border:2px solid #fff; box-shadow: 10px 10px 5px #ccc;">
 	<h4>Before:</h4>
-	<img src="before_and_after/before.png" alt="Before Arrangements Finder" width="300">
+	<img src="before_and_after/before.png" alt="Before Arrangements Finder" width="250">
 </div>
 <div style="display: inline-block;">
 	<h4>After:</h4>
